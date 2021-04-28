@@ -1,5 +1,5 @@
 // Don't include token here for production
-let token = `dca45c0c2fb50e81656b5787edfb69ba0fa28607e166e847`
+let token = `[INSERT TOKEN HERE]`
 
 // Object is going to 
 export const server_calls = {
