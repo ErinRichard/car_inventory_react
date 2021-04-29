@@ -72,14 +72,14 @@ export const CarForm = (props:CarFormProps) => {
                     <Input {...register('sale_price')} name="sale_price" placeholder="Sale Price"/>
                 </div>
 
-                {/* <div>
+                <div>
                     <label htmlFor="color">Color</label>
                     <Input {...register('color')} name="color" placeholder="Color"/>
                 </div>
                 <div>
                     <label htmlFor="year">Year</label>
                     <Input {...register('year')} name="year" placeholder="Year"/>
-                </div> */}
+                </div>
                 
                 <div>
                     <label htmlFor="mpg">MPG</label>

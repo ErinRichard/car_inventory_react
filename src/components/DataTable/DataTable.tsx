@@ -18,8 +18,8 @@ const columns: GridColDef[] = [
     type: 'number',
     width: 150,
   },
-    // { field: 'color', headerName: 'Color', width: 200 }, 
-    // { field: 'year', headerName: 'Year', width: 200 },   
+    { field: 'color', headerName: 'Color', width: 200 }, 
+    { field: 'year', headerName: 'Year', width: 200 },   
     { field: 'mpg', headerName: 'MPG', width: 200 },
     { field: 'new_used', headerName: 'New or Used', width: 150 },
 

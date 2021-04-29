@@ -6,8 +6,8 @@ const rootSlice = createSlice({
         make: 'honda',
         model: 'accord',
         sale_price: '18000.00',
-        // color: 'white',
-        // year: '2021',
+        color: 'white',
+        year: '2021',
         mpg: 'city: 30 / highway: 38',
         new_used: 'new'
     } ,
