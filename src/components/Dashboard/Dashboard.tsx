@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { DataTable, CarForm, } from '../../components';
 // Imports for what we need from material-ui
 import { Drawer as MUIDrawer,
     ListItem,
@@ -14,7 +15,12 @@ import { Drawer as MUIDrawer,
     IconButton,
     Divider,
     Button,
-    Typography
+    Typography,
+    Dialog, 
+    DialogActions, 
+    DialogContent, 
+    DialogContentText, 
+    DialogTitle 
 } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import MenuIcon from '@material-ui/icons/Menu'
@@ -23,7 +29,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import clsx from 'clsx';
 import { RouteComponentProps, withRouter, Switch, Route } from 'react-router-dom';
 
-import { DataTable } from '../../components';
 
 const drawerWidth = 240;
 
@@ -122,6 +127,7 @@ export const Dashboard = withRouter( (props:DashProps) => {
     // useState allows us to create a variable (setOpen is a function, open is a variable)
     // Initial state of open is set to false (menu is closed)
     const [open, setOpen] = useState(false)
+    const [dialogOpen, setDialogOpen] = useState(false);
 
     // handDrawerOpen and Close communication with const [open, setOpen] = useState(false) above
     // When the hamburger button is clicked, open the side menu
@@ -133,6 +139,16 @@ export const Dashboard = withRouter( (props:DashProps) => {
     const handleDrawerClose = () => {
         setOpen(false)
     }
+
+    // Handle dialog Open/Close
+    const handleDialogClickOpen = () => {
+        setDialogOpen(true);
+    }
+
+    const handleDialogClickClose = () => {
+        setDialogOpen(false);
+    }
+
 
     // This array will contain a bunch of objects
     const itemsList = [
@@ -158,8 +174,23 @@ export const Dashboard = withRouter( (props:DashProps) => {
                         {/* MenuIcon is the hamburger icon */}
                         <MenuIcon />
                     </IconButton>
-                    <Typography> Dashboard </Typography>    
-                    <Button className = {classes.toolbar_button}>Create New Car</Button>
+                    <Typography> Dashboard </Typography>
+                    <Button className={classes.toolbar_button} onClick={handleDialogClickOpen}>Create New Car</Button>
+
+                        {/*Dialog Pop Up begin */}
+                        <Dialog open={dialogOpen} onClose={handleDialogClickClose} aria-labelledby="form-dialog-title">
+                        <DialogTitle id="form-dialog-title">Add New Car</DialogTitle>
+                        <DialogContent>
+                        <DialogContentText>Add A New Car</DialogContentText>
+                            <CarForm />
+                        </DialogContent>
+                        <DialogActions>
+                        <Button onClick = {handleDialogClickClose} color="primary">Cancel</Button>
+                        <Button onClick={handleDialogClickClose} color = "primary">Done</Button> 
+                        </DialogActions>
+
+                        </Dialog>
+
                 </Toolbar> 
             </AppBar>
 
