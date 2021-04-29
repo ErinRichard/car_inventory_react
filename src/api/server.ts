@@ -19,7 +19,7 @@ export const server_calls = {
         return await response.json()
     },
     create: async (data: any = {}) => {
-        const response = await fetch(`https://git.heroku.com/car-inventory-rangers-er.herokuapp.com/api/cars`, {
+        const response = await fetch(`https://car-inventory-rangers-er.herokuapp.com/api/cars`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ export const server_calls = {
 
     update: async (id:string, data: any = {}) => {
         // !!Make sure to add ${id} at the end of the url to avoid creating large amount of cars!!
-        const response = await fetch(`https://git.heroku.com/car-inventory-rangers-er.herokuapp.com/api/cars/${id}`, {
+        const response = await fetch(`https://car-inventory-rangers-er.herokuapp.com/api/cars/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
